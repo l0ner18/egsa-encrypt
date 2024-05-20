@@ -1,5 +1,6 @@
 from tkinter import *
 import math
+import tkinter.messagebox as messagebox
 
 ws = Tk()
 ws.title('EGSA')
@@ -38,8 +39,6 @@ def Answer():
 
     Y = (G ** X) % P
 
-    print("Y = ", Y)
-
     M = 5
     K = 2
 
@@ -69,19 +68,13 @@ def Answer():
         if n != l:
             flag = True
 
-
-    print("A = ", a)
-    print("K = ", K) 
-    print("B = ", B)
-    print(n, l)
-
-    
-    answer = str()
-    Label(ws, bg='gray81', text=f'A: {a}').place(x=65, y=220)
-    Label(ws, bg='gray81', text=f'K: {K}').place(x=65, y=240)
-    Label(ws, bg='gray81', text=f'B: {B}').place(x=65, y=260)
-    Label(ws, bg='gray81', text=f'Ya: {n}').place(x=65, y=280)
-    Label(ws, bg='gray81', text=f'Ga: {l}').place(x=65, y=300)
+    messagebox.showinfo("Результаты",
+                            f"A: {a}\n"
+                            f"K: {K}\n"
+                            f"B: {B}\n"
+                            f"M: {M}\n"
+                            f"Ya: {n}\n"
+                            f"Gm: {l}\n")
 btn = Button(ws, text="Зашифровать", command=Answer)
 btn.place(x=65, y=185)
 ws.mainloop()
